@@ -2,7 +2,8 @@
   <header class="l-header">
     <div class="l-header__main">
       <router-link to="/" class="l-header__logo">
-        Able-Sisters Logo
+        <!-- Able-Sisters Logo -->
+        <img src="@/assets/images/able-sisters.png" alt="Able-Sisters">
       </router-link>
       <div class="l-header__nav">
         <ul class="l-header__list">

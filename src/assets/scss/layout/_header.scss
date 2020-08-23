@@ -19,7 +19,13 @@
 }
 
 .l-header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20%;
+  height: 75px;
+  background-color: #88C9A1;
+  text-align: center;
 }
 
 .l-header__nav {
@@ -37,6 +43,9 @@
 }
 
 .l-header__link {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
   padding: 1rem;
 }

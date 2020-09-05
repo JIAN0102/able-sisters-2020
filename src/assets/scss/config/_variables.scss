@@ -1,3 +1,24 @@
-/* ==========
-  #VARIABLES
-  ========== */
+// sass-mq 使用方式
+// @include mq($from: 斷點) {} 編譯後 @media (max-width: 斷點)
+// @include mq($until: 斷點) {} 編譯後 @media (min-width: 斷點)
+// @include mq($from: 斷點, $until: 斷點) {} 編譯後 @media (max-width: 斷點) and (min-width: 斷點)
+$mq-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px,
+);
+
+// 主、副色
+$primary: #88C9A1;
+$secondary: #FBABAE;
+
+// 黑、白色
+$black: #000000;
+$white: #ffffff;
+
+// 灰階寫法，設計稿常常會有好幾種不同色階的灰色，就可以用這個方式取值
+// 以取得 #666 為例子，#666 位於整個陣列的第四個
+// 寫法 nth($grayscale, 4);
+$grayscale: #f8f8f8, #f0f0f0, #dcdcdc, #8c8c8c, #222222;

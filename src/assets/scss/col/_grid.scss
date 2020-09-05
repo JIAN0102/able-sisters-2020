@@ -100,7 +100,7 @@
   max-width: 100%;
 }
 
-@media (min-width: 576px) {
+@include mq(sm) {
   .col\@sm {
     flex-basis: 0;
     flex-grow: 1;
@@ -136,7 +136,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@include mq(md) {
   .col\@md {
     flex-basis: 0;
     flex-grow: 1;
@@ -172,7 +172,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@include mq(lg) {
   .col\@lg {
     flex-basis: 0;
     flex-grow: 1;
@@ -208,7 +208,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@include mq(xl) {
   .col\@xl {
     flex-basis: 0;
     flex-grow: 1;
@@ -244,7 +244,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@include mq(xxl) {
   .col\@xxl {
     flex-basis: 0;
     flex-grow: 1;

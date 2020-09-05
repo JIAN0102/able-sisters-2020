@@ -8,19 +8,36 @@
 
 .c-hero__media {
   position: relative;
-  > img {
-    width: 100%;
+  width: 100%;
+  padding-top: 100%;
+  background-image: url(~@/assets/images/home-banner.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include mq(lg) {
+    padding-top: 36%;
   }
 }
 
 .c-hero__slogan {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
-  padding: 0 6.25%;
+  position: relative;
+  padding: 0 5%;
+  margin: -7.5rem 0 0;
+  text-align: center;
+  @include mq(lg) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0 6.25%;
+    margin: 0;
+    text-align: left;
+  }
   img {
-    width: 30%;
+    width: 280px;
+    @include mq(md) {
+      width: 30%;
+    }
   }
 }

@@ -7,15 +7,16 @@
           <div class="p-product__filter">
             <ul>
               <li
-                :class="{'active':category==='all'}"
+                :class="{'is-active':category==='all'}"
                 @click="category='all'"
               >
-                全部商品
+                <div class="icon"></div>
+                <h3 class="u-text-base">全部商品</h3>
               </li>
               <li
                 v-for="(item, index) in categoryList"
                 :key="index"
-                :class="{'active':item===category}"
+                :class="{'is-active':item===category}"
                 @click="category=item"
               >
                 <div class="icon" :class="`icon-${item}`"></div>
@@ -23,28 +24,38 @@
               </li>
             </ul>
           </div>
-          <ul class="p-product__list">
-            <li class="p-product__item" v-for="product in filterProduct" :key="product.id">
-              <div class="p-product__card">
-                <button
-                  class="btn btn-primary p-product__cart"
-                  @click="addCart(product)"
-                >
-                  加入購物車
-                </button>
-                <span class="p-product__category">{{ product.category }}</span>
-                <router-link class="p-product__link" :to="`/product/${product.id}`">
-                  <img :src="product.imageUrl[0]" :alt="product.title">
-                  <h2>{{ product.title }}</h2>
-                  <p>{{ product.content }}</p>
-                  <ul>
-                    <li>{{ product.origin_price }}</li>
-                    <li>{{ product.price }}</li>
-                  </ul>
-                </router-link>
+          <div class="p-product__list">
+            <h1 class="u-text-xl u-font-medium u-mb-6">
+              {{ category === 'all' ? '全部商品' : category }}
+            </h1>
+            <div class="col-row u-horizontal-20 u-vertical-20">
+              <div class="col-1/2@md col-1/3@xl" v-for="product in filterProduct" :key="product.id">
+                <div class="p-product__card">
+                  <button
+                    class="p-product__cart"
+                    @click="addCart(product)"
+                  >
+                    加入購物車
+                  </button>
+                  <span class="p-product__category">{{ product.category }}</span>
+                  <router-link class="p-product__link" :to="`/product/${product.id}`">
+                    <img class="u-mb-3" :src="product.imageUrl[0]" :alt="product.title">
+                    <h2 class="u-text-lg u-font-medium u-mb-3">{{ product.title }}</h2>
+                    <p class="u-color-gray-400 u-mb-5">{{ product.content }}</p>
+                    <ul class="p-product__price">
+                      <li>{{ product.origin_price | currency}}</li>
+                      <li class="u-color-primary">
+                        優惠價
+                        <span class="u-text-lg u-ml-1">
+                          {{ product.price  | currency}}
+                        </span>
+                      </li>
+                    </ul>
+                  </router-link>
+                </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <Pagination :page="pagination" @emitPages="getProducts" />
       </div>

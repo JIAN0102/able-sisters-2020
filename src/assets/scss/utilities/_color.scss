@@ -1,0 +1,39 @@
+/* ==========
+  #COLOR
+  ========== */
+
+.u-color-primary {
+  color: $primary !important;
+}
+
+.u-color-secondary {
+  color: $secondary !important;
+}
+
+.u-color-white {
+  color: $white !important;
+}
+
+.u-color-black {
+  color: $black !important;
+}
+
+.u-color-gray-100 {
+  color: nth($grayscale, 1) !important;
+}
+
+.u-color-gray-200 {
+  color: nth($grayscale, 2) !important;
+}
+
+.u-color-gray-300 {
+  color: nth($grayscale, 3) !important;
+}
+
+.u-color-gray-400 {
+  color: nth($grayscale, 4) !important;
+}
+
+.u-color-gray-500 {
+  color: nth($grayscale, 5) !important;
+}

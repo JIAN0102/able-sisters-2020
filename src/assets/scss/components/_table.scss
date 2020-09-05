@@ -1,0 +1,52 @@
+/* ==========
+  #TABLE
+  ========== */
+
+.c-table {
+  position: relative;
+}
+
+.c-table__header {
+  .c-table__box {
+    background-color: nth($grayscale, 1);
+    border-right: 1px solid $white;
+  }
+}
+
+.c-table__item {
+  position: relative;
+  border-bottom: 1px solid nth($grayscale, 2);
+}
+
+.c-table__box {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 1rem 1.25rem;
+}
+
+.c-table__remove {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: $secondary;
+  border-radius: 50%;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 2px;
+    background-color: $white;
+  }
+  &:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

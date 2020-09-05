@@ -1,0 +1,8 @@
+// 偵測是否有 hover
+@mixin is-hover() {
+  @media (hover: hover), (-ms-high-contrast: none) {
+    &:hover {
+      @content;
+    }
+  }
+}

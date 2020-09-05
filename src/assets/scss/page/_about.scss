@@ -1,0 +1,25 @@
+/* ==========
+  #ABOUT
+  ========== */
+
+.p-about {
+  padding: 0 0 5rem;
+}
+
+/* ==========
+  #MEMBER
+  ========== */
+
+.p-member {
+  position: relative;
+  padding: 0 0 6.25rem;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    background-color: nth($grayscale, 1);
+  }
+}

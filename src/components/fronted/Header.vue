@@ -5,7 +5,10 @@
         <!-- Able-Sisters Logo -->
         <img src="@/assets/images/able-sisters.png" alt="Able-Sisters">
       </router-link>
-      <div class="l-header__nav">
+      <div
+        class="l-header__nav"
+        :class="{'is-active': openMenuToggle}"
+      >
         <ul class="l-header__list">
           <li class="l-header__item">
             <router-link
@@ -25,7 +28,7 @@
           </li>
           <li class="l-header__item">
             <router-link
-              to="/cart"
+              to="/orders"
               class="l-header__link"
             >
               購物車
@@ -42,62 +45,15 @@
           </li>
         </ul>
       </div>
-    </div>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <router-link to="/" class="navbar-brand">
-        Able Sisters 前台
-      </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon" />
-      </button>
       <div
-        id="navbarSupportedContent"
-        class="collapse navbar-collapse"
+        class="l-header__burger"
+        :class="{'is-active': openMenuToggle}"
+        @click="openMenuToggle = !openMenuToggle"
       >
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/products"
-            >
-              手工服飾
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/about"
-            >
-              關於我們
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/cart"
-            >
-              購物車
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/login"
-            >
-              登入後台
-            </router-link>
-          </li>
-        </ul>
+        <span></span>
+        <span></span>
       </div>
-    </nav> -->
+    </div>
   </header>
 </template>
 
@@ -106,6 +62,7 @@ export default {
   data() {
     return {
       carts: [],
+      openMenuToggle: false,
     };
   },
   created() {

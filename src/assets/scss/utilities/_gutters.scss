@@ -1,0 +1,49 @@
+/* ==========
+  #HORIZONTAL
+  ========== */
+
+.u-horizontal-10 {
+  margin-left: -0.625rem !important;
+  > * {
+    padding-left: 0.625rem !important;
+  }
+}
+
+.u-horizontal-20 {
+  margin-left: -1.25rem !important;
+  > * {
+    padding-left: 1.25rem !important;
+  }
+}
+
+.u-horizontal-30 {
+  margin-left: -1.875rem !important;
+  > * {
+    padding-left: 1.875rem !important;
+  }
+}
+
+/* ==========
+  #VERTICAL
+  ========== */
+
+.u-vertical-10 {
+  margin-bottom: -0.625rem !important;
+  > * {
+    margin-bottom: 0.625rem !important;
+  }
+}
+
+.u-vertical-20 {
+  margin-bottom: -1.25rem !important;
+  > * {
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+.u-vertical-30 {
+  margin-bottom: -1.875rem !important;
+  > * {
+    margin-bottom: 1.875rem !important;
+  }
+}

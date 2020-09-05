@@ -30,9 +30,19 @@ const routes = [
         component: () => import('../views/fronted/About.vue'),
       },
       {
-        path: '/cart',
-        name: '購物車',
-        component: () => import('../views/fronted/Cart.vue'),
+        path: '/orders',
+        name: '訂購明細',
+        component: () => import('../views/fronted/Orders.vue'),
+      },
+      {
+        path: '/checkout/:id',
+        name: '確認訂單',
+        component: () => import('../views/fronted/Checkout.vue'),
+      },
+      {
+        path: '/finished/:id',
+        name: '完成訂購',
+        component: () => import('../views/fronted/Finished.vue'),
       },
       {
         path: '/login',

@@ -1,0 +1,226 @@
+$unit: 0.25rem;
+
+$direction: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+  y: vertical,
+  x: horizontal,
+);
+
+/* ==========
+  #PADDING
+  ========== */
+
+.u-p-0 {
+  padding: 0 !important;
+}
+
+@each $key, $value in $direction {
+  @for $index from 0 through 36 {
+    .u-p#{$key}-#{$index} {
+      @if $key == y {
+        padding-top: $index * $unit !important;
+        padding-bottom: $index * $unit !important;
+      } @else if $key == x {
+        padding-left: $index * $unit !important;
+        padding-right: $index * $unit !important;
+      } @else {
+        padding-#{$value}: $index * $unit !important;
+      }
+    }
+  }
+}
+
+@include mq(sm) {
+  .u-p-0\@sm {
+    padding: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-p#{$key}-#{$index}\@sm {
+        @if $key == y {
+          padding-top: $index * $unit !important;
+          padding-bottom: $index * $unit !important;
+        } @else if $key == x {
+          padding-left: $index * $unit !important;
+          padding-right: $index * $unit !important;
+        } @else {
+          padding-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .u-p-0\@md {
+    padding: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-p#{$key}-#{$index}\@md {
+        @if $key == y {
+          padding-top: $index * $unit !important;
+          padding-bottom: $index * $unit !important;
+        } @else if $key == x {
+          padding-left: $index * $unit !important;
+          padding-right: $index * $unit !important;
+        } @else {
+          padding-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(lg) {
+  .u-p-0\@lg {
+    padding: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-p#{$key}-#{$index}\@lg {
+        @if $key == y {
+          padding-top: $index * $unit !important;
+          padding-bottom: $index * $unit !important;
+        } @else if $key == x {
+          padding-left: $index * $unit !important;
+          padding-right: $index * $unit !important;
+        } @else {
+          padding-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(xl) {
+  .u-p-0\@xl {
+    padding: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-p#{$key}-#{$index}\@xl {
+        @if $key == y {
+          padding-top: $index * $unit !important;
+          padding-bottom: $index * $unit !important;
+        } @else if $key == x {
+          padding-left: $index * $unit !important;
+          padding-right: $index * $unit !important;
+        } @else {
+          padding-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+/* ==========
+  #MARGIN
+  ========== */
+
+.u-m-0 {
+  margin: 0 !important;
+}
+
+@each $key, $value in $direction {
+  @for $index from 0 through 36 {
+    .u-m#{$key}-#{$index} {
+      @if $key == y {
+        margin-top: $index * $unit !important;
+        margin-bottom: $index * $unit !important;
+      } @else if $key == x {
+        margin-left: $index * $unit !important;
+        margin-right: $index * $unit !important;
+      } @else {
+        margin-#{$value}: $index * $unit !important;
+      }
+    }
+  }
+}
+
+@include mq(sm) {
+  .u-m-0\@sm {
+    margin: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-m#{$key}-#{$index}\@sm {
+        @if $key == y {
+          margin-top: $index * $unit !important;
+          margin-bottom: $index * $unit !important;
+        } @else if $key == x {
+          margin-left: $index * $unit !important;
+          margin-right: $index * $unit !important;
+        } @else {
+          margin-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .u-m-0\@md {
+    margin: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-m#{$key}-#{$index}\@md {
+        @if $key == y {
+          margin-top: $index * $unit !important;
+          margin-bottom: $index * $unit !important;
+        } @else if $key == x {
+          margin-left: $index * $unit !important;
+          margin-right: $index * $unit !important;
+        } @else {
+          margin-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(lg) {
+  .u-m-0\@lg {
+    margin: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-m#{$key}-#{$index}\@lg {
+        @if $key == y {
+          margin-top: $index * $unit !important;
+          margin-bottom: $index * $unit !important;
+        } @else if $key == x {
+          margin-left: $index * $unit !important;
+          margin-right: $index * $unit !important;
+        } @else {
+          margin-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq(xl) {
+  .u-m-0\@xl {
+    margin: 0 !important;
+  }
+  @each $key, $value in $direction {
+    @for $index from 0 through 36 {
+      .u-m#{$key}-#{$index}\@xl {
+        @if $key == y {
+          margin-top: $index * $unit !important;
+          margin-bottom: $index * $unit !important;
+        } @else if $key == x {
+          margin-left: $index * $unit !important;
+          margin-right: $index * $unit !important;
+        } @else {
+          margin-#{$value}: $index * $unit !important;
+        }
+      }
+    }
+  }
+}

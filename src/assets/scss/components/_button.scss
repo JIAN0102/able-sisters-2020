@@ -1,0 +1,44 @@
+/* ==========
+  #BUTTON
+  ========== */
+
+.c-btn {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.25;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 1rem 2.5rem;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  transition: color .4s ease, background-color .4s ease, border-color .4s ease;
+}
+
+.c-btn--primary {
+  color: $white;
+  background-color: $primary;
+  @include is-hover {
+    color: $white;
+    background-color: darken($primary, 10%);
+  }
+}
+
+.c-btn--secondary {
+  color: $white;
+  background-color: $secondary;
+  @include is-hover {
+    color: $white;
+    background-color: darken($secondary, 10%);
+  }
+}
+
+.c-btn--secondary-outline {
+  color: $secondary;
+  background-color: $white;
+  border-color: $secondary;
+  @include is-hover {
+    color: $white;
+    background-color: $secondary;
+  }
+}

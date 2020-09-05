@@ -23,10 +23,12 @@ import * as rules from 'vee-validate/dist/rules'; // 驗證規則
 import zhTW from 'vee-validate/dist/locale/zh_TW.json'; // 語系
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import 'swiper/swiper-bundle.css';
+import 'swiper/css/swiper.css';
 
 import App from './App.vue';
 import router from './router';
+
+import currencyFilter from './filters/currency';
 
 window.$ = jquery;
 
@@ -37,6 +39,8 @@ Vue.use(VueCookies);
 Vue.use(VueAwesomeSwiper);
 
 Vue.config.productionTip = false;
+
+Vue.filter('currency', currencyFilter);
 
 Vue.component('Loading', Loading);
 

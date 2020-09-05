@@ -1,0 +1,98 @@
+/* ==========
+  #FONT-SIZE
+  ========== */
+
+// 72,52,36,22,18,16
+
+.u-text-xs {
+  font-size: 0.75rem !important;
+}
+
+.u-text-sm {
+  font-size: 0.875rem !important;
+}
+
+.u-text-base {
+  font-size: 1rem !important;
+}
+
+.u-text-lg {
+  font-size: 1.125rem !important;
+  @include mq(md) {
+    font-size: 1.25rem !important;
+  }
+}
+
+.u-text-xl {
+  font-size: 1.5rem !important;
+  @include mq(md) {
+    font-size: 1.75rem !important;
+  }
+  @include mq(xl) {
+    font-size: 2rem !important;
+  }
+}
+
+/* ==========
+  #FONT-WEIGHT
+  ========== */
+
+.u-font-light {
+  font-weight: 300 !important;
+}
+
+.u-font-regular {
+  font-weight: 400 !important;
+}
+
+.u-font-medium {
+  font-weight: 500 !important;
+}
+
+.u-font-bold {
+  font-weight: 700 !important;
+}
+
+/* ==========
+  #TEXT-ALIGN
+  ========== */
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
+
+@include mq(sm) {
+  .u-text-left\@sm {
+    text-align: left !important;
+  }
+
+  .u-text-right\@sm {
+    text-align: right !important;
+  }
+
+  .u-text-center\@sm {
+    text-align: center !important;
+  }
+}
+
+@include mq(md) {
+  .u-text-left\@md {
+    text-align: left !important;
+  }
+
+  .u-text-right\@md {
+    text-align: right !important;
+  }
+
+  .u-text-center\@md {
+    text-align: center !important;
+  }
+}

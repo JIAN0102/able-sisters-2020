@@ -1,7 +1,62 @@
 /* ==========
+  #INTRO
+  ========== */
+.p-intro {
+  position: relative;
+  padding: 3rem 0 4rem;
+  @include mq(md) {
+    padding: 4rem 0 5rem;
+  }
+  @include mq(xl) {
+    padding: 5rem 0 6.25rem;
+  }
+}
+
+/* ==========
   #COMMENT
   ========== */
 
 .p-comment {
-  padding: 5rem 0 6.25rem;
+  position: relative;
+  padding: 3rem 0 4rem;
+  @include mq(md) {
+    padding: 4rem 0 5rem;
+  }
+  @include mq(xl) {
+    padding: 5rem 0 6.25rem;
+  }
+}
+
+.p-comment__slider {
+  position: relative;
+  padding: 0 2rem;
+  @include mq(md) {
+    padding: 0 3rem;
+  }
+  @include mq(xl) {
+    padding: 0 5rem;
+  }
+}
+
+.p-comment__card {
+  position: relative;
+  padding: 5rem 0 0;
+  text-align: center;
+}
+
+.p-comment__photo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 160px;
+  background-color: $black;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.p-comment__content {
+  background-color: nth($grayscale, 1);
+  padding: 5.625rem 1.875rem 4rem;
 }

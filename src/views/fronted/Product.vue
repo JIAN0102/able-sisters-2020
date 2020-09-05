@@ -8,15 +8,37 @@
         </div>
         <div class="p-product-detail__content">
           <div class="p-product-detail__inner">
-            <span>{{ product.category }}</span>
-            <h1>{{ product.title }}</h1>
+            <h2 class="u-text-base u-color-secondary u-mb-2">{{ product.category }}</h2>
+            <h1 class="u-text-xl u-font-medium u-mb-4">{{ product.title }}</h1>
             <p>{{ product.content }}</p>
+            <div class="p-product-detail__quantity">
+              <span class="u-mr-5">數量</span>
+              <div class="p-product-detail__action">
+                <button
+                  class="p-product-detail__btn p-product-detail__btn-minus"
+                  @click="updateQuantity(-1)" :disabled="quantity === 1"
+                >
+                </button>
+                <div class="p-product-detail__input">{{ quantity }}</div>
+                <button
+                  class="p-product-detail__btn p-product-detail__btn-plus"
+                  @click="updateQuantity(1)"
+                >
+                </button>
+              </div>
+            </div>
             <button
-              class="btn btn-primary"
+              class="c-btn c-btn--primary"
               @click="addCart()"
             >
               加入購物車
             </button>
+            <!-- <button
+              class="c-btn c-btn--primary"
+              @click="removeCart()"
+            >
+              移除購物車
+            </button> -->
           </div>
         </div>
       </div>
@@ -34,6 +56,7 @@ export default {
         imageUrl: [],
         num: 0,
       },
+      quantity: 1,
     };
   },
   created() {
@@ -59,7 +82,7 @@ export default {
 
       this.$http.post(api, {
         product: this.product.id,
-        quantity: 1,
+        quantity: this.quantity,
       })
         .then(() => {
           this.isLoading = false;
@@ -73,6 +96,9 @@ export default {
           const errorMessage = err.response.data.errors[0];
           this.$bus.$emit('message', errorMessage, 'danger');
         });
+    },
+    updateQuantity(quantity) {
+      this.quantity += quantity;
     },
     removeCart() {
       this.isLoading = true;

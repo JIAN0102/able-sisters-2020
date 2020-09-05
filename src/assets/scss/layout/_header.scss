@@ -8,7 +8,6 @@
   // left: 0;
   position: relative;
   width: 100%;
-  background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 9998;
 }
@@ -16,36 +15,134 @@
 
 .l-header__main {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 0 0;
+  @include mq(lg) {
+    padding: 0;
+  }
 }
 
 .l-header__logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
-  height: 75px;
-  background-color: #88C9A1;
+  height: 60px;
+  background-color: $primary;
+  padding: 0 1rem;
   text-align: center;
+  @include mq(lg) {
+    width: 20%;
+    height: 75px;
+    padding: 0;
+  }
+  img {
+    width: 110px;
+    @include mq(lg) {
+      width: auto;
+    }
+  }
 }
 
 .l-header__nav {
-  width: 80%;
+  background-color: $white;
+  @include mq($until: lg) {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  @include mq(lg) {
+    display: block;
+    width: 80%;
+  }
 }
 
 .l-header__list {
-  display: flex;
+  @include mq(lg) {
+    display: flex;
+  }
 }
 
 .l-header__item {
-  width: 25%;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba($black, 0.1);
   text-align: center;
+  @include mq(lg) {
+    width: 25%;
+    border-left: 1px solid rgba($black, 0.1);
+    border-top: none;
+  }
 }
 
 .l-header__link {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75px;
   padding: 1rem;
+  transition: color 0.3s ease;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    height: 3px;
+    background-color: $primary;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  @include is-hover {
+    color: $primary;
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.l-header__burger {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  // background-color: $primary;
+  // border: 1px solid #000;
+  @include mq(lg) {
+    display: none;
+  }
+  span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $primary;
+    transition: all 0.5s ease;
+    &:nth-child(1) {
+      top: 14px;
+    }
+    &:nth-child(2) {
+      bottom: 14px;
+    }
+  }
+  &.is-active {
+    span {
+      &:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+      }
+      &:nth-child(2) {
+        bottom: 50%;
+        transform: translate(-50%,50%) rotate(-45deg);
+      }
+    }
+  }
 }

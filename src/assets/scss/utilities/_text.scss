@@ -33,6 +33,16 @@
   }
 }
 
+.u-text-2xl {
+  font-size: 2rem !important;
+  @include mq(md) {
+    font-size: 2.25rem !important;
+  }
+  @include mq(xl) {
+    font-size: 2.5rem !important;
+  }
+}
+
 /* ==========
   #FONT-WEIGHT
   ========== */

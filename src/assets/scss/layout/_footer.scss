@@ -2,6 +2,57 @@
   #FOOTER
   ========== */
 
-  .l-footer {
-    position: relative;
+.l-footer {
+  position: relative;
+  background-color: nth($grayscale, 1);
+}
+
+.l-footer__main {
+  border-bottom: 1px solid nth($grayscale, 2);
+  padding: 1.875rem 0;
+  text-align: center;
+}
+
+.l-footer__nav {
+  @include mq(md) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+  img {
+    margin: 0 0 0.5rem;
+    @include mq(md) {
+      margin: 0;
+    }
+  }
+}
+
+.l-footer__list {
+  @include mq(sm) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.l-footer__item {
+  &:not(:last-child) {
+    margin: 0 0 1rem;
+    @include mq(sm) {
+      margin: 0 1.25rem 0 0;
+    }
+    @include mq(md) {
+      margin: 0 2rem 0 0;
+    }
+  }
+}
+
+.l-footer__link {
+  transition: color 0.2s ease;
+  @include is-hover {
+    color: $primary;
+  }
+}
+
+.l-footer__copyright {
+  padding: 1.875rem 0;
+}

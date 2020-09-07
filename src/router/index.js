@@ -40,9 +40,9 @@ const routes = [
         component: () => import('../views/fronted/Checkout.vue'),
       },
       {
-        path: '/finished/:id',
+        path: '/completed/:id',
         name: '完成訂購',
-        component: () => import('../views/fronted/Finished.vue'),
+        component: () => import('../views/fronted/Completed.vue'),
       },
       {
         path: '/login',

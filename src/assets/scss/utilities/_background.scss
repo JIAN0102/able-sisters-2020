@@ -1,0 +1,45 @@
+/* ==========
+  #BACKGROUND
+  ========== */
+
+  .u-bg-primary {
+    background-color: $primary !important;
+  }
+  
+  .u-bg-secondary {
+    background-color: $secondary !important;
+  }
+  
+  .u-bg-white {
+    background-color: $white !important;
+  }
+  
+  .u-bg-black {
+    background-color: $black !important;
+  }
+  
+  .u-bg-gray-100 {
+    background-color: nth($grayscale, 1) !important;
+  }
+  
+  .u-bg-gray-200 {
+    background-color: nth($grayscale, 2) !important;
+  }
+  
+  .u-bg-gray-300 {
+    background-color: nth($grayscale, 3) !important;
+  }
+  
+  .u-bg-gray-400 {
+    background-color: nth($grayscale, 4) !important;
+  }
+  
+  .u-bg-gray-500 {
+    background-color: nth($grayscale, 5) !important;
+  }
+  
+  .u-bg-cover {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }

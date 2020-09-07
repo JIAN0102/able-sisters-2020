@@ -9,8 +9,8 @@ import jquery from 'jquery';
 // bootstrap
 import 'bootstrap';
 // vue-loading-overlay
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+// import Loading from 'vue-loading-overlay';
+// import 'vue-loading-overlay/dist/vue-loading.css';
 // vee-validate
 import {
   ValidationObserver,
@@ -24,6 +24,8 @@ import zhTW from 'vee-validate/dist/locale/zh_TW.json'; // 語系
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
+// loading
+import newLoading from './components/Loading.vue';
 
 import App from './App.vue';
 import router from './router';
@@ -42,7 +44,7 @@ Vue.config.productionTip = false;
 
 Vue.filter('currency', currencyFilter);
 
-Vue.component('Loading', Loading);
+Vue.component('Loading', newLoading);
 
 Object.keys(rules).forEach((rule) => {
   extend(rule, rules[rule]);

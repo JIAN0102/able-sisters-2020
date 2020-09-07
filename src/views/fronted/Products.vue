@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
     <div class="p-product">
       <div class="l-wrapper">
         <div class="p-product__main">
@@ -10,10 +10,31 @@
                 :class="{'is-active':category==='all'}"
                 @click="category='all'"
               >
-                <div class="icon"></div>
+                <img src="@/assets/images/icon-hanger.svg">
                 <h3 class="u-text-base">全部商品</h3>
               </li>
               <li
+                :class="{'is-active':category==='連衣裙'}"
+                @click="category='連衣裙'"
+              >
+                <img src="@/assets/images/icon-dress.svg">
+                <h3 class="u-text-base">連衣裙</h3>
+              </li>
+              <li
+                :class="{'is-active':category==='帽子'}"
+                @click="category='帽子'"
+              >
+                <img src="@/assets/images/icon-hat.svg">
+                <h3 class="u-text-base">帽子</h3>
+              </li>
+              <li
+                :class="{'is-active':category==='飾品'}"
+                @click="category='飾品'"
+              >
+                <img src="@/assets/images/icon-accessories.svg">
+                <h3 class="u-text-base">飾品</h3>
+              </li>
+              <!-- <li
                 v-for="(item, index) in categoryList"
                 :key="index"
                 :class="{'is-active':item===category}"
@@ -21,7 +42,7 @@
               >
                 <div class="icon" :class="`icon-${item}`"></div>
                 {{ item }}
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="p-product__list">
@@ -79,19 +100,21 @@ export default {
     };
   },
   created() {
+    if (this.$route.query.category) {
+      this.category = this.$route.query.category;
+    }
     this.getProducts();
   },
   computed: {
-    categoryList() {
-      // 把產品裡面唯一的 category 抓出來跑迴圈
-      const allCategory = [];
-      const uniqueCategory = [];
-      this.products.forEach((product) => allCategory.push(product.category));
-      allCategory.forEach((val) => {
-        if (uniqueCategory.indexOf(val) === -1) uniqueCategory.push(val);
-      });
-      return uniqueCategory;
-    },
+    // categoryList() {
+    //   const allCategory = [];
+    //   const uniqueCategory = [];
+    //   this.products.forEach((product) => allCategory.push(product.category));
+    //   allCategory.forEach((val) => {
+    //     if (uniqueCategory.indexOf(val) === -1) uniqueCategory.push(val);
+    //   });
+    //   return uniqueCategory;
+    // },
     filterProduct() {
       // 過濾產品
       if (this.category === 'all') {

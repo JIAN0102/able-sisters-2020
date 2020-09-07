@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <Loading :active.sync="isLoading" />
-
+  <main class="container">
+    <Loading :isLoading="isLoading" />
     <form
       class="form-signin"
       @submit.prevent="signin"
@@ -45,8 +44,7 @@
         登入
       </button>
     </form>
-
-  </div>
+  </main>
 </template>
 
 <script>
@@ -88,11 +86,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.form-signin {
-  width: 100%;
-  max-width: 400px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
+<style>
 </style>

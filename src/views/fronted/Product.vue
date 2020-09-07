@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
     <div class="p-product-detail">
       <div class="p-product-detail__main">
         <div class="p-product-detail__photo">
@@ -9,7 +9,7 @@
         <div class="p-product-detail__content">
           <div class="p-product-detail__inner">
             <h2 class="u-text-base u-color-secondary u-mb-2">{{ product.category }}</h2>
-            <h1 class="u-text-xl u-font-medium u-mb-4">{{ product.title }}</h1>
+            <h1 class="u-text-2xl u-font-medium u-mb-4">{{ product.title }}</h1>
             <p>{{ product.content }}</p>
             <div class="p-product-detail__quantity">
               <span class="u-mr-5">數量</span>

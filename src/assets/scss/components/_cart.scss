@@ -4,11 +4,24 @@
 
 .c-cart {
   position: relative;
-  padding: 5rem 0 6.25rem;
+  padding: 3rem 0 4rem;
+  @include mq(md) {
+    padding: 4rem 0 5rem;
+  }
+  @include mq(xl) {
+    padding: 5rem 0 6.25rem;
+  }
 }
 
 .c-cart__section {
   &:not(:last-child) {
     margin: 0 0 5rem;
   }
+}
+
+.c-cart__remind {
+  background-color: nth($grayscale, 1);
+  border-radius: 4px;
+  padding: 1.5rem;
+  text-align: center;
 }

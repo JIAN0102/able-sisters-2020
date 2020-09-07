@@ -1,12 +1,12 @@
 <template>
   <main>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
     <Steps :progress="2" />
     <div class="c-cart">
       <div class="l-wrapper-tiny">
         <div class="c-cart__section">
-          <div class="u-text-center">
-            <h2 class="u-text-xl u-font-medium u-mb-8">確認訂單</h2>
+          <div class="u-mb-8 u-text-center">
+            <h2 class="u-text-xl u-font-medium">確認訂單</h2>
           </div>
           <div class="c-table">
             <div class="c-table__header">
@@ -53,71 +53,85 @@
                 </div>
               </li>
             </ul>
-          </div>
-          <table class="table">
-            <tfoot>
-              <tr>
-                <td colspan="4" class="text-right">
-                  總計
-                </td>
-                <td class="text-right">
+            <div class="c-table__total">
+              <p>
+                折扣價
+                <span class="u-color-primary">
                   {{ order.amount | currency }}
-                </td>
-              </tr>
-            </tfoot>
-          </table>
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
         <div class="c-table__section">
-          <div class="u-text-center">
-            <h2 class="u-text-xl u-font-medium u-mb-8">訂單資訊</h2>
+          <div class="u-mb-8 u-text-center">
+            <h2 class="u-text-xl u-font-medium">訂單資訊</h2>
           </div>
           <div>
             <form
               @submit.prevent="payOrder"
             >
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th>Email</th>
-                    <td>{{ order.user.email }}</td>
-                  </tr>
-                  <tr>
-                    <th>姓名</th>
-                    <td>{{ order.user.name }}</td>
-                  </tr>
-                  <tr>
-                    <th>收件人電話</th>
-                    <td>{{ order.user.tel }}</td>
-                  </tr>
-                  <tr>
-                    <th>收件人地址</th>
-                    <td>{{ order.user.address }}</td>
-                  </tr>
-                  <tr>
-                    <th>付款狀態</th>
-                    <td>
+              <div class="c-info">
+                <ul class="c-info__list">
+                  <li class="c-info__item">
+                    <div class="c-info__title">
+                      <span>Email</span>
+                    </div>
+                    <div class="c-info__content">
+                      <span>{{ order.user.email }}</span>
+                    </div>
+                  </li>
+                  <li class="c-info__item">
+                    <div class="c-info__title">
+                      <span>姓名</span>
+                    </div>
+                    <div class="c-info__content">
+                      <span>{{ order.user.name }}</span>
+                    </div>
+                  </li>
+                  <li class="c-info__item">
+                    <div class="c-info__title">
+                      <span>收件人電話</span>
+                    </div>
+                    <div class="c-info__content">
+                      <span>{{ order.user.tel }}</span>
+                    </div>
+                  </li>
+                  <li class="c-info__item">
+                    <div class="c-info__title">
+                      <span>收件人地址</span>
+                    </div>
+                    <div class="c-info__content">
+                      <span>{{ order.user.address }}</span>
+                    </div>
+                  </li>
+                  <li class="c-info__item">
+                    <div class="c-info__title">
+                      <span>付款狀態</span>
+                    </div>
+                    <div class="c-info__content">
                       <span
-                        class="text-success"
+                        class="u-color-primary"
                         v-show="order.paid"
                       >
                         付款完成
                       </span>
                       <span
-                        class="text-danger"
+                        class="u-color-secondary"
                         v-show="!order.paid"
                       >
                         未付款
                       </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </div>
+                  </li>
+                </ul>
+              </div>
               <div
-                class="text-right"
+                class="u-mt-10 text-right"
                 v-show="order.paid === false"
               >
                 <router-link
-                  class="c-btn c-btn--secondary-outline"
+                  class="c-btn c-btn--secondary-outline u-mr-3"
                   to="/">
                   取消購買
                 </router-link>
@@ -186,7 +200,7 @@ export default {
 
       this.$http.post(api).then((res) => {
         if (res.data.data.id) {
-          this.$router.push(`/finished/${res.data.data.id}`);
+          this.$router.push(`/completed/${res.data.data.id}`);
         }
       });
     },

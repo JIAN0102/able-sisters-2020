@@ -22,7 +22,8 @@
 }
 
 .p-product__filter {
-  background-color: nth($grayscale, 1);
+  background-color: $white;
+  border: 1px solid nth($grayscale, 2);
   margin: 0 0 2rem;
   @include mq(lg) {
     flex: 0 0 200px;
@@ -49,18 +50,16 @@
       width: 100%;
     }
     @include is-hover {
-      color: $white;
-      background-color: $primary;
+      background-color: nth($grayscale, 1);
     }
     &.is-active {
-      color: $white;
-      background-color: $primary;
+      background-color: nth($grayscale, 1);
     }
-    .icon {
-      width: 60px;
-      height: 60px;
-      background-color: nth($grayscale, 2);
-      margin: 0 auto;
+  }
+  img {
+    width: 40px;
+    @include mq(md) {
+      width: auto;
     }
   }
 }
@@ -144,27 +143,40 @@
 }
 
 .p-product-detail__main {
-  display: flex;
-  flex-wrap: wrap;
+  @include mq(lg) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .p-product-detail__photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  height: 280px;
   background-color: nth($grayscale, 1);
+  background-image: url(~@/assets/images/texture.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include mq(lg) {
+    width: 50%;
+    height: auto;
+  }
   img {
-    width: 240px;
+    @include mq(lg) {
+      width: 200px;
+    }
   }
 }
 
 .p-product-detail__content {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  min-height: calc(100vh - 80px);
+  padding: 2.5rem 5%;
   @include mq(lg) {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    min-height: calc(100vh - 80px);
     padding: 4rem;
   }
   @include mq(xl) {
@@ -173,8 +185,10 @@
 }
 
 .p-product-detail__inner {
-  width: 100%;
-  max-width: 480px;
+  @include mq(lg) {
+    width: 100%;
+    max-width: 480px;
+  }
 }
 
 .p-product-detail__quantity {

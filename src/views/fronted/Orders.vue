@@ -1,14 +1,14 @@
 <template>
   <main>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
     <Steps :progress="1" />
     <div class="c-cart">
       <div class="l-wrapper-tiny">
         <div class="c-cart__section">
-          <div class="u-text-center">
-            <h2 class="u-text-xl u-font-medium u-mb-8">購物車內容</h2>
+          <div class="u-mb-8 u-text-center">
+            <h2 class="u-text-xl u-font-medium">購物車內容</h2>
           </div>
-          <div class="c-table">
+          <div class="c-table" v-if="carts.length">
             <div class="c-table__header">
               <div class="col-row">
                 <div class="col-1/3@md">
@@ -72,62 +72,51 @@
                 ></button>
               </li>
             </ul>
-          </div>
-          <table class="table">
-            <tfoot v-if="carts.length">
-              <tr>
-                <td colspan="4" class="text-right">
-                  總計
-                </td>
-                <td class="text-right">
-                  {{ cartTotal | currency }}
-                </td>
-              </tr>
-              <tr v-if="coupon.enabled">
-                <td
-                  colspan="4"
-                  class="text-right text-success"
-                >
-                  折扣價
-                </td>
-                <td
-                  class="text-right text-success"
-                >
-                  {{ cartTotal * (coupon.percent / 100) | currency}}
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-          <div class="input-group inpur-group-sm mb-3" v-if="carts.length">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="請輸入優惠碼"
-              v-model="couponCode"
-            >
-            <div class="input-group-append">
+            <div class="c-table__coupon">
+              <input
+                type="text"
+                placeholder="請輸入優惠碼"
+                v-model="couponCode"
+              >
               <button
                 type="button"
-                class="btn btn-outline-primary"
                 @click="addCoupon"
               >
-                套用優惠碼
+                套用
               </button>
             </div>
+            <div class="c-table__total">
+              <p>
+                總計
+                <span class="u-color-primary">{{ cartTotal | currency }}</span>
+              </p>
+              <p v-if="coupon.enabled">
+                折扣價
+                <span class="u-color-primary">
+                  {{ cartTotal * (coupon.percent / 100) | currency}}
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="c-cart__remind" v-else>
+            <p class="u-color-gray-400">目前購物車沒有任何商品</p>
           </div>
         </div>
         <div class="c-cart__section">
-          <div class="u-text-center">
-            <h2 class="u-text-xl u-font-medium u-mb-8">購買資訊</h2>
+          <div class="u-mb-8 u-text-center">
+            <h2 class="u-text-xl u-font-medium">購買資訊</h2>
           </div>
           <ValidationObserver
             tag="div"
+            class="c-form"
             v-slot="{ invalid }"
           >
-            <form @submit.prevent="sendOrder">
+            <form
+              @submit.prevent="sendOrder"
+            >
               <ValidationProvider
                 tag="div"
-                class="form-group"
+                class="c-form__group"
                 rules="required"
                 v-slot="{ errors, classes }"
               >
@@ -135,16 +124,16 @@
                 <input
                   type="text"
                   id="username"
-                  class="form-control"
+                  class="c-form__control"
                   :class="classes"
                   name="收件人姓名"
                   v-model="form.name"
                 >
-                <span class="text-danger">{{ errors[0] }}</span>
+                <span class="c-form__error">{{ errors[0] }}</span>
               </ValidationProvider>
               <ValidationProvider
                 tag="div"
-                class="form-group"
+                class="c-form__group"
                 rules="required|email"
                 v-slot="{ errors, classes }"
               >
@@ -152,16 +141,16 @@
                 <input
                   type="email"
                   id="email"
-                  class="form-control"
+                  class="c-form__control"
                   :class="classes"
                   name="Email"
                   v-model="form.email"
                 >
-                <span class="text-danger">{{ errors[0] }}</span>
+                <span class="c-form__error">{{ errors[0] }}</span>
               </ValidationProvider>
               <ValidationProvider
                 tag="div"
-                class="form-group"
+                class="c-form__group"
                 rules="required"
                 v-slot="{ errors, classes }"
               >
@@ -169,16 +158,16 @@
                 <input
                   type="text"
                   id="tel"
-                  class="form-control"
+                  class="c-form__control"
                   :class="classes"
                   name="電話"
                   v-model="form.tel"
                 >
-                <span class="text-danger">{{ errors[0] }}</span>
+                <span class="c-form__error">{{ errors[0] }}</span>
               </ValidationProvider>
               <ValidationProvider
                 tag="div"
-                class="form-group"
+                class="c-form__group"
                 rules="required"
                 v-slot="{ errors, classes }"
               >
@@ -186,21 +175,21 @@
                 <input
                   type="text"
                   id="address"
-                  class="form-control"
+                  class="c-form__control"
                   :class="classes"
                   name="地址"
                   v-model="form.address"
                 >
-                <span class="text-danger">{{ errors[0] }}</span>
+                <span class="c-form__error">{{ errors[0] }}</span>
               </ValidationProvider>
               <ValidationProvider
                 tag="div"
-                class="form-group"
+                class="c-form__group"
                 rules="required"
               >
                 <label>購買方式</label>
                 <select
-                  class="form-control"
+                  class="c-form__control"
                   required
                   v-model="form.payment"
                 >
@@ -216,29 +205,24 @@
               </ValidationProvider>
               <ValidationProvider
                 tag="div"
-                class="form-group"
-                rules="required"
-                v-slot="{ errors, classes }"
+                class="c-form__group"
               >
                 <label for="message">留言</label>
                 <textarea
-                  cols="30"
-                  rows="5"
                   id="message"
-                  class="form-control"
-                  :class="classes"
-                  name="留言"
+                  class="c-form__control"
                   v-model="form.message"
                 ></textarea>
-                <span class="text-danger">{{ errors[0] }}</span>
               </ValidationProvider>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                :disabled="invalid"
-              >
-                送出訂單
-              </button>
+              <div class="u-mt-10 u-text-right">
+                <button
+                  type="submit"
+                  class="c-btn c-btn--primary"
+                  :disabled="invalid"
+                >
+                  送出訂單
+                </button>
+              </div>
             </form>
           </ValidationObserver>
         </div>

@@ -1,9 +1,40 @@
 /* ==========
+  #STORE
+  ========== */
+
+.p-store {
+  position: relative;
+}
+
+.p-store__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(25%);
+}
+
+.p-store__member {
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 50%;
+    max-width: 480px;
+  }
+}
+
+/* ==========
   #ABOUT
   ========== */
 
 .p-about {
-  padding: 0 0 5rem;
+  padding: 3rem 0;
+  @include mq(md) {
+    padding: 5rem 0 4rem;
+  }
+  @include mq(xl) {
+    padding: 6.25rem 0 5rem;
+  }
 }
 
 /* ==========
@@ -21,5 +52,15 @@
     width: 100%;
     height: calc(100% - 80px);
     background-color: nth($grayscale, 1);
+    background-image: url(~@/assets/images/texture.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  img {
+    width: 320px;
+    @include mq(lg) {
+      width: 100%;
+    }
   }
 }

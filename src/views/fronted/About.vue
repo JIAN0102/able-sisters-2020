@@ -1,5 +1,16 @@
 <template>
   <main>
+    <div class="p-store">
+      <img class="u-full" src="@/assets/images/about-banner.jpg">
+      <div class="p-store__main">
+        <div class="l-wrapper">
+          <div class="p-store__member">
+            <img src="@/assets/images/member-2.png">
+            <img src="@/assets/images/member-1.png">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="p-about">
       <div class="l-wrapper-tiny">
         <div class="u-text-center">
@@ -25,7 +36,7 @@
         <div class="col-row u-horizontal-30 u-vertical-30">
           <div class="col-1/3@lg">
             <div class="u-text-center">
-              <img class="u-mb-5" src="https://images.unsplash.com/photo-1599119282057-6f310c399de5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+              <img class="u-mb-5" src="@/assets/images/sister-1.jpg">
               <h2 class="u-text-lg u-font-medium u-mb-4">
                 <span class="u-color-primary">麻兒</span> (大姐)
               </h2>
@@ -34,7 +45,7 @@
           </div>
           <div class="col-1/3@lg">
             <div class="u-text-center">
-              <img class="u-mb-5" src="https://images.unsplash.com/photo-1599119282057-6f310c399de5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+              <img class="u-mb-5" src="@/assets/images/sister-2.jpg">
               <h2 class="u-text-lg u-font-medium u-mb-4">
                 <span class="u-color-primary">綿兒</span> (二姐)
               </h2>
@@ -43,7 +54,7 @@
           </div>
           <div class="col-1/3@lg">
             <div class="u-text-center">
-              <img class="u-mb-5" src="https://images.unsplash.com/photo-1599119282057-6f310c399de5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+              <img class="u-mb-5" src="@/assets/images/sister-3.jpg">
               <h2 class="u-text-lg u-font-medium u-mb-4">
                 <span class="u-color-primary">娟兒</span> (妹妹)
               </h2>

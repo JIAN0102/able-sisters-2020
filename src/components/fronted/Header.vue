@@ -15,7 +15,8 @@
               to="/products"
               class="l-header__link"
             >
-              手工服飾
+              <div class="l-header__icon"></div>
+              <span>手工服飾</span>
             </router-link>
           </li>
           <li class="l-header__item">
@@ -23,7 +24,8 @@
               to="/about"
               class="l-header__link"
             >
-              關於我們
+              <div class="l-header__icon"></div>
+              <span>關於我們</span>
             </router-link>
           </li>
           <li class="l-header__item">
@@ -31,8 +33,15 @@
               to="/orders"
               class="l-header__link"
             >
-              購物車
-              <span v-show="carts.length !== 0">{{ carts.length }}</span>
+              <div class="l-header__icon">
+                <span
+                  class="l-header__quantity"
+                  v-show="carts.length !== 0"
+                >
+                  {{ carts.length }}
+                </span>
+              </div>
+              <span>購物車</span>
             </router-link>
           </li>
           <li class="l-header__item">
@@ -40,7 +49,8 @@
               to="/login"
               class="l-header__link"
             >
-              登入後台
+              <div class="l-header__icon"></div>
+              <span>登入後台</span>
             </router-link>
           </li>
         </ul>

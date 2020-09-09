@@ -108,6 +108,28 @@
   }
 }
 
+.l-header__icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: nth($grayscale, 2);
+  margin: 0 0.375rem 0 0;
+}
+
+.l-header__quantity {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  display: block;
+  width: 18px;
+  height: 18px;
+  font-size: 0.75rem;
+  color: $white;
+  background-color: $secondary;
+  border-radius: 50%;
+}
+
 .l-header__burger {
   position: relative;
   width: 40px;

@@ -49,7 +49,7 @@
                 </div>
                 <div class="c-info__content">
                   <span
-                    class="text-success"
+                    class="u-color-primary"
                     v-show="order.paid"
                   >
                     付款完成
@@ -59,7 +59,7 @@
             </ul>
           </div>
           <div
-            class="u-mt-10 text-right"
+            class="u-mt-10 u-text-right"
           >
             <router-link
               class="c-btn c-btn--primary"

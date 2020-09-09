@@ -1,5 +1,7 @@
 <template>
-  <div class="l-loading" :class="{'is-loaded': !isLoading}"></div>
+  <div class="l-loading" :class="{'is-loaded': !isLoading}">
+    <div class="l-loading__circle"></div>
+  </div>
 </template>
 
 <script>

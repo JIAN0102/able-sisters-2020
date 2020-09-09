@@ -1,49 +1,52 @@
 <template>
   <main class="container">
     <Loading :isLoading="isLoading" />
-    <form
-      class="form-signin"
-      @submit.prevent="signin"
-    >
-      <h1 class="h3 mb-3 font-weight-normal">
-        請先登入
-      </h1>
-      <div class="form-group">
-        <label
-          for="inputEmail"
-          class="sr-only"
-        >Email address</label>
-        <input
-          id="inputEmail"
-          type="email"
-          class="form-control"
-          v-model="user.email"
-          placeholder="Email address"
-          required
-          autofocus
+    <div class="l-wrapper">
+      <div class="c-form">
+        <form
+          @submit.prevent="signin"
         >
+          <h1 class="h3 mb-3 font-weight-normal">
+            請先登入
+          </h1>
+          <div class="c-form__group">
+            <label
+              for="inputEmail"
+              class="sr-only"
+            >Email address</label>
+            <input
+              id="inputEmail"
+              type="email"
+              class="c-form__control"
+              v-model="user.email"
+              placeholder="Email address"
+              required
+              autofocus
+            >
+          </div>
+          <div class="c-form__group">
+            <label
+              for="inputPassword"
+              class="sr-only"
+            >Password</label>
+            <input
+              id="inputPassword"
+              type="password"
+              class="c-form__control"
+              v-model="user.password"
+              placeholder="Password"
+              required
+            >
+          </div>
+          <button
+            class="c-btn c-btn--primary"
+            type="submit"
+          >
+            登入
+          </button>
+        </form>
       </div>
-      <div class="form-group">
-        <label
-          for="inputPassword"
-          class="sr-only"
-        >Password</label>
-        <input
-          id="inputPassword"
-          type="password"
-          class="form-control"
-          v-model="user.password"
-          placeholder="Password"
-          required
-        >
-      </div>
-      <button
-        class="btn btn-lg btn-primary btn-block"
-        type="submit"
-      >
-        登入
-      </button>
-    </form>
+    </div>
   </main>
 </template>
 

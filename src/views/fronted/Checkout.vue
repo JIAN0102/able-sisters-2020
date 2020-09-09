@@ -55,7 +55,7 @@
             </ul>
             <div class="c-table__total">
               <p>
-                折扣價
+                總價
                 <span class="u-color-primary">
                   {{ order.amount | currency }}
                 </span>
@@ -127,7 +127,7 @@
                 </ul>
               </div>
               <div
-                class="u-mt-10 text-right"
+                class="u-mt-10 u-text-right"
                 v-show="order.paid === false"
               >
                 <router-link

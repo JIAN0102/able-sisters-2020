@@ -1,0 +1,49 @@
+/* ==========
+  #TOAST
+  ========== */
+
+.c-toast {
+  position: fixed;
+  z-index: 9998;
+  @include mq($until: md) {
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+  @include mq(md) {
+    top: 6.5rem;
+    right: 2rem;
+    min-width: 320px;
+  }
+}
+
+.c-toast__item {
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba($black, 0.1);
+  &:not(:last-child) {
+    margin: 0 0 1rem;
+  }
+}
+
+.c-toast__header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid nth($grayscale, 2);
+  padding: 0.75rem;
+  strong {
+    margin: 0 auto 0 0;
+  }
+}
+
+.c-toast__body {
+  padding: 0.75rem;
+}
+
+.c-toast__box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin: 0 0.5rem 0 0;
+}

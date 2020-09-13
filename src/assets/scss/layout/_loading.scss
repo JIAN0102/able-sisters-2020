@@ -11,35 +11,36 @@
   background-color: rgba($black, 0.5);
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 9999;
   &.is-loaded {
     opacity: 0;
     visibility: hidden;
   }
-}
-
-.l-loading__circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background-color: $white;
-  border-radius: 50%;
-  animation: scale-loop 0.75s infinite;
-  @keyframes scale-loop {
+  img {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    transform: translateY(0);
+    width: 200px;
+    user-select: none;
+    pointer-events: none;
+    animation: up-down 1.5s infinite;
+    @include mq(md) {
+      bottom: 1.5rem;
+      right: 2.5rem;
+      width: 240px;
+    }
+  }
+  @keyframes up-down {
     0% {
-      opacity: 0;
-      transform: scale(0);
+      transform: translateY(0);
     }
     50% {
-      opacity: 1;
+      transform: translateY(3%);
     }
     100% {
-      opacity: 0;
-      transform: scale(1);
+      transform: translateY(0);
     }
   }
 }

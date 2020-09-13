@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
 
     <div class="text-right mt-4">
       <button

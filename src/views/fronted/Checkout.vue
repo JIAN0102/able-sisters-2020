@@ -36,17 +36,20 @@
               >
                 <div class="col-row">
                   <div class="col-1/3@md">
-                    <div class="c-table__box">
+                    <div class="c-table__box" data-title="商品名稱">
+                      <img
+                        class="u-mr-2"
+                        :src="product.product.imageUrl[0]" :alt="product.product.title">
                       <span>{{ product.product.title }}</span>
                     </div>
                   </div>
                   <div class="col-1/3@md">
-                    <div class="c-table__box">
+                    <div class="c-table__box" data-title="數量">
                       <span>{{ product.quantity }} / {{product.product.unit}}</span>
                     </div>
                   </div>
                   <div class="col-1/3@md">
-                    <div class="c-table__box">
+                    <div class="c-table__box" data-title="單價">
                       <span>{{ product.product.price | currency }}</span>
                     </div>
                   </div>

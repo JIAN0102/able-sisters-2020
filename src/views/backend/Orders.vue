@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loading :active.sync="isLoading" />
+    <Loading :isLoading="isLoading" />
 
     <table class="table mt-4">
       <thead>

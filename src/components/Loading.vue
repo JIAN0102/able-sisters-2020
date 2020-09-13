@@ -1,6 +1,6 @@
 <template>
   <div class="l-loading" :class="{'is-loaded': !isLoading}">
-    <div class="l-loading__circle"></div>
+    <img src="@/assets/images/island.svg">
   </div>
 </template>
 

@@ -1,37 +1,27 @@
 <template>
   <div
-    style="
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      min-width: 320px;
-      z-index: 9999;
-    "
-    >
-    <div
-      class="toast fade show"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-      v-for="message in messages" :key="message.timestamp"
-    >
-      <div class="toast-header">
-        <div
-          class="inline-block rounded mr-2 bg-primary"
-          :class="`bg-${message.status}`"
-          style="width: 20px; height: 20px"
-        >
+    class="c-toast"
+  >
+    <ul class="c-toast__list">
+      <li
+        class="c-toast__item"
+        v-for="message in messages"
+        :key="message.timestamp"
+      >
+        <div class="c-toast__header">
+          <div
+            class="c-toast__box"
+            :class="`u-bg-${message.status}`"
+          >
+          </div>
+          <strong>Able Sisters</strong>
+          <small>現在</small>
         </div>
-        <strong class="mr-auto">Able Sisters</strong>
-        <small>現在</small>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="toast-body">
-        {{ message.message }}
-      </div>
-    </div>
+        <div class="c-toast__body">
+          {{ message.message }}
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 

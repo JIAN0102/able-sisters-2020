@@ -7,6 +7,10 @@
 }
 
 .c-table__header {
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
   .c-table__box {
     background-color: nth($grayscale, 1);
     border-right: 1px solid $white;
@@ -15,26 +19,57 @@
 
 .c-table__item {
   position: relative;
-  border-bottom: 1px solid nth($grayscale, 2);
+  border: 1px solid nth($grayscale, 2);
+  @include mq(md) {
+    border: none;
+    border-bottom: 1px solid nth($grayscale, 2);
+  }
+  &:not(:last-child) {
+    margin: 0 0 1rem;
+    @include mq(md) {
+      margin: 0;
+    }
+  }
 }
 
 .c-table__box {
-  display: flex;
-  align-items: center;
-  height: 100%;
+  border-bottom: 1px solid nth($grayscale, 2);
   padding: 1rem 1.25rem;
+  @include mq(md) {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 1.25rem;
+  }
+  &:before {
+    content: attr(data-title);
+    display: block;
+    font-size: 0.875rem;
+    color: nth($grayscale, 4);
+    margin: 0 0 0.25rem;
+    @include mq(md) {
+      display: none;
+    }
+  }
+  img {
+    width: 80px;
+  }
 }
 
 .c-table__remove {
   position: absolute;
-  top: 50%;
-  right: 1.25rem;
-  transform: translateY(-50%);
+  top: 1rem;
+  right: 1rem;
   width: 24px;
   height: 24px;
   background-color: $secondary;
   border-radius: 50%;
   transition: background-color 0.2s ease;
+  @include mq(md) {
+    top: 50%;
+    right: 1.25rem;
+    transform: translateY(-50%);
+  }
   &:before, &:after {
     content: '';
     position: absolute;

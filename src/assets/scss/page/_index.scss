@@ -38,6 +38,7 @@
     }
   }
   img {
+    width: 40px;
     @include mq(md) {
       margin: 0 0.25rem 0 0;
     }

@@ -219,8 +219,8 @@
               </ValidationProvider>
               <div class="u-mt-10 u-text-right">
                 <button
-                  type="submit"
                   class="c-btn c-btn--primary"
+                  type="submit"
                   :disabled="invalid"
                 >
                   送出訂單

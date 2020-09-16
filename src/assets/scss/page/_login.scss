@@ -1,0 +1,17 @@
+/* ==========
+  #LOGIN
+  ========== */
+
+.p-login {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 60px);
+  background-image: url(~@/assets/images/texture.jpg);
+  @include mq(lg) {
+    height: calc(100vh - 75px);
+  }
+}
+
+.p-login__main {
+  width: 100%;
+}

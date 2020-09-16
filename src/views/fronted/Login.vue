@@ -1,50 +1,67 @@
 <template>
-  <main class="container">
+  <main>
     <Loading :isLoading="isLoading" />
-    <div class="l-wrapper">
-      <div class="c-form">
-        <form
-          @submit.prevent="signin"
-        >
-          <h1 class="h3 mb-3 font-weight-normal">
-            請先登入
-          </h1>
-          <div class="c-form__group">
-            <label
-              for="inputEmail"
-              class="sr-only"
-            >Email address</label>
-            <input
-              id="inputEmail"
-              type="email"
-              class="c-form__control"
-              v-model="user.email"
-              placeholder="Email address"
-              required
-              autofocus
-            >
-          </div>
-          <div class="c-form__group">
-            <label
-              for="inputPassword"
-              class="sr-only"
-            >Password</label>
-            <input
-              id="inputPassword"
-              type="password"
-              class="c-form__control"
-              v-model="user.password"
-              placeholder="Password"
-              required
-            >
-          </div>
-          <button
-            class="c-btn c-btn--primary"
-            type="submit"
+    <div class="p-login">
+      <div class="p-login__main">
+        <div class="l-wrapper-tiny">
+          <ValidationObserver
+            tag="div"
+            class="c-form"
+            v-slot="{ invalid }"
           >
-            登入
-          </button>
-        </form>
+            <form
+              @submit.prevent="signin"
+            >
+              <div class="u-mb-10 u-text-center">
+                <h1 class="u-text-xl u-font-medium">
+                  登入後台
+                </h1>
+              </div>
+              <ValidationProvider
+                tag="div"
+                class="c-form__group"
+                rules="required"
+                v-slot="{ errors, classes }"
+              >
+                <input
+                  id="inputEmail"
+                  type="email"
+                  class="c-form__control"
+                  :class="classes"
+                  name="Email"
+                  v-model="user.email"
+                  placeholder="Email address"
+                >
+                <span class="c-form__error">{{ errors[0] }}</span>
+              </ValidationProvider>
+              <ValidationProvider
+                tag="div"
+                class="c-form__group"
+                rules="required"
+                v-slot="{ errors, classes }"
+              >
+                <input
+                  id="inputPassword"
+                  type="password"
+                  class="c-form__control"
+                  :class="classes"
+                  v-model="user.password"
+                  placeholder="Password"
+                >
+                <span class="c-form__error">{{ errors[0] }}</span>
+              </ValidationProvider>
+              <div class="u-mt-10 u-text-right">
+                <button
+                  class="c-btn c-btn--primary"
+                  type="submit"
+                  :disabled="invalid"
+                >
+                  登入
+                </button>
+              </div>
+            </form>
+          </ValidationObserver>
+        </div>
       </div>
     </div>
   </main>

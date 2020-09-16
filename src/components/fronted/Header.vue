@@ -16,7 +16,7 @@
               class="l-header__link"
             >
               <div class="l-header__icon">
-                <img src="@/assets/images/icon-cart.svg">
+                <img src="@/assets/images/icon-product.svg">
               </div>
               <span>手工服飾</span>
             </router-link>
@@ -27,7 +27,7 @@
               class="l-header__link"
             >
               <div class="l-header__icon">
-                <img src="@/assets/images/icon-cart.svg">
+                <img src="@/assets/images/icon-star.svg">
               </div>
               <span>關於我們</span>
             </router-link>
@@ -55,7 +55,7 @@
               class="l-header__link"
             >
               <div class="l-header__icon">
-                <img src="@/assets/images/icon-cart.svg">
+                <img src="@/assets/images/icon-admin.svg">
               </div>
               <span>登入後台</span>
             </router-link>

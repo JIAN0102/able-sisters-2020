@@ -10,39 +10,30 @@
                 :class="{'is-active':category==='all'}"
                 @click="category='all'"
               >
-                <img src="@/assets/images/icon-hanger.svg">
+                <img src="@/assets/images/icon-category-1.svg">
                 <h3 class="u-text-base">全部商品</h3>
               </li>
               <li
                 :class="{'is-active':category==='連衣裙'}"
                 @click="category='連衣裙'"
               >
-                <img src="@/assets/images/icon-dress.svg">
+                <img src="@/assets/images/icon-category-2.svg">
                 <h3 class="u-text-base">連衣裙</h3>
               </li>
               <li
                 :class="{'is-active':category==='帽子'}"
                 @click="category='帽子'"
               >
-                <img src="@/assets/images/icon-hat.svg">
+                <img src="@/assets/images/icon-category-3.svg">
                 <h3 class="u-text-base">帽子</h3>
               </li>
               <li
                 :class="{'is-active':category==='飾品'}"
                 @click="category='飾品'"
               >
-                <img src="@/assets/images/icon-accessories.svg">
+                <img src="@/assets/images/icon-category-4.svg">
                 <h3 class="u-text-base">飾品</h3>
               </li>
-              <!-- <li
-                v-for="(item, index) in categoryList"
-                :key="index"
-                :class="{'is-active':item===category}"
-                @click="category=item"
-              >
-                <div class="icon" :class="`icon-${item}`"></div>
-                {{ item }}
-              </li> -->
             </ul>
           </div>
           <div class="p-product__list">
@@ -56,6 +47,7 @@
                     class="p-product__cart"
                     @click="addCart(product)"
                   >
+                    <img src="@/assets/images/icon-cart.svg">
                     加入購物車
                   </button>
                   <span class="p-product__category">{{ product.category }}</span>
